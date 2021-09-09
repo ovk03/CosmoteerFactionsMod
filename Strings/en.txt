@@ -1,0 +1,18 @@
+Parts
+{
+	SuperArmor = "Super Armor"
+	SuperArmorIcon = "Sup. Armor"
+	SuperArmorDesc = "Provides twice the armor at only thrice the cost!"
+
+	SuperArmorWedge = "Super Armor (Wedge)"
+	SuperArmorWedgeIcon = "Sup. Armor (Wedge)"
+	SuperArmorWedgeDesc = &SuperArmorDesc
+	MedRam = "Medium Ram"
+	MedRamIcon = &MedRam 
+	MedRamDesc = "Armoured prow section designed to house launch mechanisms for two triple torpedo launch tubes. Due to Departmento Munitorium ammunition shortages it has also been discovered to be very effective for ramming heretical ships. Inquisitorial Warning: remember to purge any heretical remains from exterior of prow section following ramming manoeuvres.<color r=\"255\" g=\"0\" b=\"0\"> Requires a Frigate or Command Bridge. Requires Torpedos to fire, can only be fired when completely loaded.</color>"
+	
+}
+ShipClasses
+{
+	Brawler="My custom faction"
+}

@@ -1,0 +1,240 @@
+Armor
+{
+	CombineMode = Multiply
+	BaseValue = 100%
+	Icon
+	{
+		Texture
+		{
+			File = "buff_range.png"
+			MipLevels = 2
+			SampleMode = Linear
+		}
+		Size = [2, 2]
+	}
+	IconTextFormatKey = "BuildBox/BuffPercentageFmt"
+	IconTextMultiply = 100
+	IconTextAdd = -100
+	
+	RectBorderColor = [0, 255, 84, 160]
+	RectFillColor = [0, 255, 84, 64]
+}
+Shield_Interference
+{
+	CombineMode = Add
+}
+
+Roof_Turret_Proximity
+{
+	CombineMode = Add
+}
+
+FTL_Check
+{
+	CombineMode = Add
+}
+//---------------------------------
+ModularEngine
+{
+	CombineMode = Max
+	BaseValue = 100%
+
+	Icon
+	{
+		Texture
+		{
+			File = "./Data/buffs/buff_engine.png"
+			MipLevels = 2
+			SampleMode = Linear
+		}
+		Size = [2, 2]
+	}
+	IconTextFormatKey = "BuildBox/BuffPercentageFmt"
+	IconTextMultiply = 100
+	IconTextAdd = -100
+
+	RectBorderColor = [0, 255, 84, 160]
+	RectFillColor = [0, 255, 84, 64]
+}
+ModularEngineStackBase
+{
+	CombineMode = Add
+}
+ModularEngineStack
+{
+	CombineMode = Add
+	Exponent = 1.0
+	Multiplier = 100%
+	BaseValue = 100%	//default = 0
+
+	RectBorderColor = [0, 255, 84, 160]
+	RectFillColor = [0, 255, 84, 64]
+}
+
+//---------------------------------
+Vector_Thruster_Overcharge
+{
+//	CombineMode = Max
+//	BaseValue = 100%
+
+	CombineMode = Add
+	Multiplier = 100%//5%
+	BaseValue = 100%
+
+	Icon
+	{
+		Texture
+		{
+			File = "./Data/buffs/buff_engine.png"
+			MipLevels = 2
+			SampleMode = Linear
+		}
+		Size = [2, 2]
+	}
+	IconTextFormatKey = "BuildBox/BuffPercentageFmt"
+	IconTextMultiply = 100
+	IconTextAdd = -100
+
+	RectBorderColor = [0, 255, 84, 160]
+	RectFillColor = [0, 255, 84, 64]
+}
+//---------------------------------
+Improve_Weapon_Range
+{
+	CombineMode = Max
+	BaseValue = 100%
+	Icon
+	{
+		Texture
+		{
+			File = "buff_range.png"
+			MipLevels = 2
+			SampleMode = Linear
+		}
+		Size = [2, 2]
+	}
+	IconTextFormatKey = "BuildBox/BuffPercentageFmt"
+	IconTextMultiply = 100
+	IconTextAdd = -100
+	
+	RectBorderColor = [0, 255, 84, 160]
+	RectFillColor = [0, 255, 84, 64]
+}
+
+Mainframe_Computer
+{
+	CombineMode = Max
+	BaseValue = 0%
+	Icon
+	{
+		Texture
+		{
+			File = "buff_mainframe.png"
+			MipLevels = 2
+			SampleMode = Linear
+		}
+		Size = [2, 2]
+	}
+	IconTextFormatKey = "BuildBox/BuffPercentageFmt"
+	IconTextMultiply = 100
+	IconTextAdd = 0//-100
+	
+	RectBorderColor = [0, 255, 84, 160]
+	RectFillColor = [0, 255, 84, 64]
+}
+
+Sensors_Data
+{
+	CombineMode = Add
+	Exponent = 0.75
+	Multiplier = 20%
+	BaseValue = 100%
+	Icon
+	{
+		Texture
+		{
+			File = "buff_sensor.png"
+			MipLevels = 2
+			SampleMode = Linear
+		}
+		Size = [3, 3]
+	}
+	IconTextFormatKey = "BuildBox/BuffPercentageFmt"
+	IconTextMultiply = 100
+	IconTextAdd = -100
+	
+	RectBorderColor = [0, 255, 84, 160]
+	RectFillColor = [0, 255, 84, 64]
+}
+
+//---------------------------------
+MassDrive
+{
+	CombineMode = Add
+}
+
+MassDriveShot
+{
+	CombineMode = Add
+	Exponent = 1.0
+	Multiplier = 30%//15%
+	BaseValue = 100%
+
+	IconTextFormatKey = "BuildBox/BuffPercentageFmt"
+	IconTextMultiply = 100
+	IconTextAdd = -100
+	ShowIconTextForZeroValue = true//false
+}
+
+MassDriveOperation
+{
+	CombineMode = Add
+
+	RectBorderColor = [0, 255, 84, 160]
+	RectFillColor = [0, 255, 84, 64]
+}
+
+MassDriveReverseOperation
+{
+	CombineMode = Add
+
+	RectBorderColor = [0, 255, 84, 160]
+	RectFillColor = [0, 255, 84, 64]
+}
+
+//---------------------------------
+FusionCannon
+{
+	CombineMode = Add
+}
+
+
+FusionCannonShot
+{
+	CombineMode = Add
+	Exponent = 1.0
+	Multiplier = 100%
+	BaseValue = 100%
+
+	IconTextFormatKey = ""
+	IconTextMultiply = 100
+	IconTextAdd = -100
+	ShowIconTextForZeroValue = true//false
+}
+
+FusionCannonOperation
+{
+	CombineMode = Add
+
+	RectBorderColor = [0, 255, 84, 160]
+	RectFillColor = [0, 255, 84, 64]
+}
+
+
+FusionCannonReverseOperation
+{
+	CombineMode = Add
+
+	RectBorderColor = [0, 255, 84, 160]
+	RectFillColor = [0, 255, 84, 64]
+}

@@ -1,0 +1,453 @@
+Brawler : <../base_ship.txt>
+{
+	ID = ok03.Brawler // Ship IDs must always be in the form of "author_name.ship_name". If making your own mod, do *not* use "cosmoteer" as your author name, because it may conflict with future vanilla ships.
+	OtherIDs = [Brawler, PlayerShips2]
+	NameKey = "ShipClasses/Brawler"
+	DefaultPartID = corridor
+	DefaultDoorID = door
+	HoleDoorID = wall_hole
+	ExternalWalls = &<walls/external walls.txt>
+	ExternalRoofWalls = &<walls/external roof walls.txt>
+
+	Parts
+	[
+		// Basic.
+		&<corridor/corridor.txt>/Part
+/*
+		// Energy weapons.
+		&<laser_blaster_small/laser_blaster_small.txt>/Part
+		&<laser_blaster_large/laser_blaster_large.txt>/Part
+		&<electro_bolter/electro_bolter.txt>/Part
+		&<ion_beam_emitter/ion_beam_emitter.txt>/Part
+		&<ion_beam_prism/ion_beam_prism.txt>/Part
+
+		// Projectile weapons.
+		&<ammo_factory/ammo_factory.txt>/Part
+		&<cannon_med/cannon_med.txt>/Part
+		&<cannon_large/cannon_large.txt>/Part
+		&<railgun_loader/railgun_loader.txt>/Part
+		&<railgun_accelerator/railgun_accelerator.txt>/Part
+		&<railgun_launcher/railgun_launcher.txt>/Part
+
+		// Missile Weapons.
+		&<missile_factory_he/missile_factory_he.txt>/Part
+		&<missile_factory_emp/missile_factory_emp.txt>/Part
+		&<missile_factory_nuke/missile_factory_nuke.txt>/Part
+		&<mine_factory/mine_factory.txt>/Part
+		&<missile_launcher/missile_launcher.txt>/Part
+
+		// Defenses.
+		&<shield_gen_small/shield_gen_small.txt>/Part
+		&<flak_cannon_large/flak_cannon_large.txt>/Part
+		&<point_defense/point_defense.txt>/Part
+		&<fire_extinguisher/fire_extinguisher.txt>/Part
+		&<armor/armor.txt>/Part
+		&<armor_2x1/armor_2x1.txt>/Part
+		&<armor_wedge/armor_wedge.txt>/Part
+		&<armor_tri/armor_tri.txt>/Part
+		&<armor_1x2_wedge/armor_1x2_wedge_L.txt>/Part
+		&<armor_1x2_wedge/armor_1x2_wedge_R.txt>/Part
+
+		// Storages. (Putting these here even though they appear in other categories so that they appear after everything in their categories.)
+		&<ammo_storage/ammo_storage.txt>/Part
+		&<missile_storage/missile_storage.txt>/Part
+
+		// Flight.
+		&<control_room_small/control_room_small.txt>/Part
+		&<ftl_drive/ftl_drive.txt>/Part
+		&<thruster_small/thruster_small.txt>/Part
+		&<thruster_small_2way/thruster_small_2way.txt>/Part
+		&<thruster_small_3way/thruster_small_3way.txt>/Part
+		&<thruster_med/thruster_med.txt>/Part
+		&<thruster_large/thruster_large.txt>/Part
+		&<thruster_huge/thruster_huge.txt>/Part
+		&<thruster_boost/thruster_boost.txt>/Part
+		&<engine_room/engine_room.txt>/Part
+
+		// Crew.
+		&<crew_quarters_small/crew_quarters_small.txt>/Part
+		&<crew_quarters_med/crew_quarters_med.txt>/Part
+		&<conveyor/conveyor.txt>/Part
+
+		// Power.
+		&<reactor_small/reactor_small.txt>/Part
+		&<reactor_med/reactor_med.txt>/Part
+		&<reactor_large/reactor_large.txt>/Part
+		&<power_storage/power_storage.txt>/Part
+
+		// Misc.
+		&<tractor_beam_emitter/tractor_beam_emitter.txt>/Part
+		&<sensor_array/sensor_array.txt>/Part
+		&<explosive_charge/explosive_charge.txt>/Part
+		&<structure/structure.txt>/Part
+		&<structure_wedge/structure_wedge.txt>/Part
+		&<structure_1x2_wedge/structure_1x2_wedge_L.txt>/Part
+		&<structure_1x2_wedge/structure_1x2_wedge_R.txt>/Part
+*/
+	]
+	Doors
+	[
+		&<door/door.txt>
+		&<wall_hole/wall_hole.txt>
+	]
+
+	CategoryNouns
+	[
+		{Category=thruster; SingularKey="CategoryNouns/ThrusterSingular"; PluralKey="CategoryNouns/ThrusterPlural"}
+	]
+
+	RenderLayers
+	[
+		// Structure.
+		{
+			Key = "structure"// Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = -500
+				RenderStage = Lowest
+				DrawWithShipGhost = true
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/parts.shader"
+				}
+			}
+		}
+
+		// Floors.
+		{
+			Key = "floors"// Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = -400
+				RenderStage = Lower
+				DrawWithShipGhost = true
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/parts.shader"
+				}
+			}
+		}
+
+		// Turrets.
+		{
+			Key = "turrets"// Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = -300
+				RenderStage = Lower
+				DrawWithShipGhost = true
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/parts.shader"
+				}
+			}
+		}
+
+		// Low-level doodads.
+		{
+			Key = "doodads_low"// Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = -200
+				RenderStage = Lower
+				DrawWithShipGhost = false
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/parts.shader"
+				}
+			}
+		}
+
+		// Walls stencil.
+		{
+			Key = "walls_stencil"// Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = -100
+				RenderStage = Lower
+				DrawWithShipGhost = false
+				DrawToStencilTexture = true
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/parts.shader"
+				}
+			}
+		}
+
+		// <------------ CREW GET RENDERED HERE
+
+		// Weapons.
+		{
+			Key = "weapons" // Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = 0
+				RenderStage = Upper
+				DrawWithShipGhost = true
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/parts.shader"
+				}
+			}
+		}
+
+		// High-level doodads.
+		{
+			Key = "doodads_high" // Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = 100
+				RenderStage = Upper
+				DrawWithShipGhost = false
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/parts.shader"
+				}
+			}
+		}
+
+		// Additive lights.
+		{
+			Key = "lights_add"// Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = 300
+				RenderStage = Upper
+				DrawWithShipGhost = false
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/parts.shader"
+					TargetBlendMode
+					{
+						SourceRgbFactor = One
+						DestRgbFactor = One
+						RgbOperator = Add
+						SourceAlphaFactor = Zero
+						DestAlphaFactor = One
+						AlphaOperator = Add
+					}
+				}
+			}
+		}
+
+		// Fire
+		{
+			Key = "fire" // Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = 400
+				RenderStage = Upper
+				DrawWithShipGhost = false
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/parts.shader"
+				}
+			}
+		}
+
+		// Doors.
+		{
+			Key = "doors"// Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = 500
+				RenderStage = Upper
+				DrawWithShipGhost = false
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/parts.shader"
+				}
+			}
+		}
+
+		// Walls.
+		{
+			Key = "walls"// Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = 600
+				RenderStage = Upper
+				DrawWithShipGhost = false
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/walls.shader"
+				}
+			}
+		}
+
+		// Roofs.
+		{
+			Key = "roofs"// Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = 700
+				RenderStage = Upper
+				DrawWithShipGhost = false
+				IsRoof = true
+				Inflate = .0001
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/roof_colored.shader"
+				}
+			}
+		}
+
+		// Roof doodads.
+		{
+			Key = "roof_doodads"// Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = 800
+				RenderStage = Upper
+				DrawWithShipGhost = false
+				IsRoof = true
+				Inflate = .0001
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/roof_uncolored.shader"
+				}
+			}
+		}
+
+		// Roof windows.
+		{
+			Key = "roof_windows"// Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = 900
+				RenderStage = Upper
+				DrawWithShipGhost = false
+				IsRoof = true
+				Inflate = .0001
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/roof_uncolored.shader"
+				}
+			}
+		}
+
+		// Roof turrets.
+		{
+			Key = "roof_turrets"// Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = 950
+				RenderStage = Upper
+				DrawWithShipGhost = false
+				IsRoof = true
+				Inflate = .0001
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/roof_uncolored.shader"
+				}
+			}
+		}
+
+		// Indicators
+		{
+			Key = "indicators"// Ship bucket layer.
+			Value // The actual material.
+			{
+				UniqueBucket = 1000
+				RenderStage = Indicators
+				DrawWithShipGhost = false
+				DrawForLocalPlayerOnly = true
+				AtlasTextureParams
+				{
+					MipLevels = 7 // Assumes 64x64 min part sprite size.
+				}
+				Material
+				{
+					Shader = "../common/indicators.shader"
+					_colorFluctuateLow = [255, 255, 255, 127]
+					_colorFluctuateHigh = [255, 255, 255, 255]
+					_fluctuateInterval = 1
+					_maxScale = 2
+					_background
+					{
+						File = "./Data/gui/game/indicators/indicator_background.png"
+						SampleMode = Linear
+						MipLevels = max
+					}
+				}
+			}
+		}
+	]
+
+	Blueprints : <../base_ship.txt>/Blueprints
+	{
+		ExternalWalls = &<walls/external blueprint walls.txt>
+	}
+
+	Roofs : <../base_ship.txt>/Roofs
+	{
+		RoofTexturesFolders = ["./Data/roof_textures"]
+		DefaultRoofTexture = "plates1"
+		RoofDecalsFolders = ["./Data/roof_decals"]
+	}
+
+	Fire : <../base_ship.txt>/Fire
+	{
+		AssociateFireExtinguishJobWithPart = cosmoteer.fire_extinguisher
+	}
+}

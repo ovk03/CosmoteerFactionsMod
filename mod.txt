@@ -1,0 +1,23 @@
+ID = ok03.factions_mod
+Name = "Factions Mod"
+Version = 0.0.1
+CompatibleGameVersions = ["0.15.16a"]
+Author = "ok03"
+Description = "This is a mod that demonstrates how to create other mods.\n\n"\
+              "- Increased starting money on Easy difficulty to 200,000 credits.\n\n"\
+              "- Increased starting fuel in Bounty Hunter to 50 and the starting fuel capacity to 200.\n\n"\
+              "- Reactors, ammo factories, and cannons no longer cause collateral damage when destroyed.\n\n"\
+              "- The \"Skeletor\" ship will now spawn as an enemy in Bounty Hunter.\n\n"\
+              "- Increased Control Room density to 3.0.\n\n"\
+              "- Control rooms now have an invisible 4-way thruster.\n\n"\
+              "- Adds \"Super Armor\" parts that have 2x the strength of regular armor.\n\n"\
+              "- Adds a \"squiggle\" decal and "flowers" ship texture."
+StringsFolder = "strings"
+Actions
+[
+	{
+		Action=Add
+		AddTo= "<rules.txt>/Ships"
+		ToAdd= &<Brawler/Brawler.txt>/Brawler
+	}
+]
