@@ -18,6 +18,6 @@ Actions
 	{
 		Action=Add
 		AddTo= "<rules.txt>/Ships"
-		ToAdd= &<Brawler/Brawler.txt>/Brawler
+		ToAdd= &<Ships/Brawler/Brawler.txt>/Brawler
 	}
 ]

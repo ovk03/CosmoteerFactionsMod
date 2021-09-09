@@ -1,0 +1,260 @@
+CategoryLimits = []
+CategoryNouns = []
+
+MaxBorders
+{
+	Left = -51
+	Right = 51
+	Top = -51
+	Bottom = 51
+}
+
+MaxAbsLinearVelocity = Infinity
+MaxAbsAngularVelocity = 25
+
+PartsGhostShader = "common/parts_ghost.shader"
+PartsOverlayShader = "common/parts overlay.shader"
+
+Doors = []
+DefaultDoorID = ""
+HoleDoorID = ""
+
+BaseLinearDamping = 0.2
+LinearDampingFactorPerSpeed = 75
+LinearDampingFactorPerSpeedExponent = 2.0
+MinLinearDamping = 0.2
+BaseAngularDamping = 0.2
+AngularDampingFactorPerSpeed = 1
+AngularDampingFactorPerSpeedExponent = 0
+MinAngularDamping = 0.2
+Restitution = 0
+RotationalInertiaFactor = 1
+ThrusterSolverIterations = 3
+ThrusterSRFFactors = [1, 2, 100]
+UncommandedThrusterShutdownDelay = 2
+TargetReachedDistanceSizeRatio = 2
+TargetResetDistanceSizeRatio = 3
+AdjustRotationVelocity = 10
+VelocityCalculateFactor = 15
+AngularVelocityCalculateFactor = 10
+RetroVelocityCalculateFactor = 2
+RetroAngularVelocityCalculateFactor = 3
+AngleSatisfiedThreshold = [0d, 45d]
+HorizontalSatisfiedThreshold = [0, 15%] // Velocity as percentage of forward distance.
+ForwardThrustRatioHistoryCount = 10
+ArrivalTimeOptimisticBuffer = 0.5
+ArrivalTimeRampDown = 1.0
+OrbitModeRadiusFactor = 1.5
+MaxPartSearchIterations = 50
+SupplierSearchInterval = 1
+SelfDestructForce = 10
+BaseSightRadius = 25
+DefaultTargetingRangeFactor = 2.0
+
+FtlFuelCostPerMass = .035
+FtlFuelCostPerMassDistance = .035
+FtlDistanceExponent = .5
+FtlEfficiencyFactorRange = [6, 1]
+
+Fire = &<./Data/fire/fire.txt>
+
+ExternalWalls
+{
+	Layer = ""
+	AmbiguousSprites
+	[
+		// No Walls.
+		{
+			SituationCode = "********"
+			DamageLevels = []
+		}
+	]
+}
+
+ExternalRoofWalls
+{
+	Layer = ""
+	AmbiguousSprites
+	[
+		// No Walls.
+		{
+			SituationCode = "********"
+			DamageLevels = []
+		}
+	]
+}
+
+Roofs
+{
+	RoofFadeInDuration = .5
+	RoofFadeOutDuration = .5
+
+	RoofTextureSizePerTile = [64, 64]
+
+	DecalSizePerTile = [64, 64]
+	DecalsAtlasParams
+	{
+		MipLevels = 7 // Assumes 64x64 min decal size.
+	}
+
+	BaseColorSRange = [0, 1]
+	BaseColorVRange = [.15, 1]
+	BaseTextureARange = [.25, .75]
+	Decals1SRange = &BaseColorSRange
+	Decals1VRange = &BaseColorVRange
+	Decals2SRange = &BaseColorSRange
+	Decals2VRange = &BaseColorVRange
+
+	DefaultBaseColor
+	{
+		H = 0
+		S = 0
+		V = 1
+		A = 127
+	}
+	DefaultDecals1Color = Red
+	DefaultDecals2Color = {H=0; S=&../BaseColorSRange/0; V=&../BaseColorVRange/0}
+}
+
+Blueprints
+{
+	AtlasTextureParams
+	{
+		MipLevels = 7 // Assumes 64x64 min part sprite size.
+	}
+	Material
+	{
+		Shader = "common/blueprints.shader"
+		_colorFluctuateLow = [255, 255, 255, 223]
+		_colorFluctuateHigh = [255, 255, 255, 229]
+		_fluctuateInterval = .1
+		_redTransform = [1, 0, 0, 0]
+		_greenTransform = [0, 1, 0, 0]
+		_blueTransform = [0, 0, 1, 0]
+		_alphaTransform = [0, 0, 0, 1]
+	}
+
+	InvalidMaterial : Material
+	{
+		// The atlaser won't build a separate atlas for this material, so we need to use the same texture.
+
+		Shader = "common/blueprints.shader"
+		_colorFluctuateLow = [127, 255, 255, 229]
+		_colorFluctuateHigh = [255, 255, 255, 229]
+		_fluctuateInterval = .5
+		_redTransform = [0, 0, 1, 0]
+		_greenTransform = [0, 1, 0, 0]
+		_blueTransform = [1, 0, 0, 0]
+		_alphaTransform = [0, 0, 0, 1]
+	}
+
+	ExternalWalls
+	{
+		AmbiguousSprites
+		[
+			// No Walls.
+			{
+				SituationCode = "********"
+				DamageLevels = []
+			}
+		]
+	}
+}
+
+Redprints
+{
+	Material : ../Blueprints/Material
+	{
+		_colorFluctuateLow = [255, 255, 255, 127]
+		_colorFluctuateHigh = [255, 255, 255, 191]
+		_fluctuateInterval = 1
+		_redTransform = [0, 0, 1, 0]
+		_greenTransform = [0, 1, 0, 0]
+		_blueTransform = [1, 0, 0, 0]
+		_alphaTransform = [0, 0, 0, 1]
+	}
+
+	RepairIndicatorAtlasTextureParams
+	{
+		MipLevels = 7 // Assumes 64x64 min part sprite size.
+	}
+	IndicatorsMaterial
+	{
+		Shader = "common/indicators.shader"
+		_colorFluctuateLow = [255, 255, 255, 127]
+		_colorFluctuateHigh = [255, 255, 255, 255]
+		_fluctuateInterval = 1
+		_maxScale = 2
+		_background
+		{
+			File = "./Data/gui/game/indicators/indicator_background.png"
+			SampleMode = Linear
+			MipLevels = max
+		}
+	}
+	RepairIndicatorSprite
+	{
+		File = "./Data/gui/game/indicators/indicator_repair.png"
+		Size = [1, 1]
+		VertexColor = [255, 255, 255, 255]
+		UVRotation = 0
+	}
+}
+
+FtlEffects
+{
+	TotalDuration = .75
+
+	CropTime = [0, .3]
+	CropSprite
+	{
+		Texture
+		{
+			File = "common/ftl_jump.png"
+			SampleMode = Linear
+			MipLevels = max
+		}
+		VertexColor = [191, 255, 255, 255]
+	}
+	CropSizeFactor = [.5, 1.25]
+	CropPulseInterval = .1
+	CropAlphaPulse = .2
+	CropWidthPulse = 0
+	CropHeightPulse = 0
+	CropZeroAlphaSize = 0
+	CropFullAlphaSize = .7
+
+	WarpEffectIn = [0, 0]
+	WarpEffectOut = [0, .75]
+	WarpEffectShader = "common/ftl_distortion.shader"
+	WarpEffectTexture
+	{
+		File = "common/ftl_distortion.png"
+		UVMode = Wrap
+		SampleMode = Linear
+		MipLevels = max
+	}
+
+	JumpOutMediaEffects
+	[
+		: /BASE_SOUNDS/AudioExterior
+		{
+			Sound = "common/ftl_jump_out.wav"
+			Volume = 2
+			MaxConcurrentVolume = 1
+			Speed = 1
+			MaxConcurrent = 1
+		}
+	]
+	JumpInMediaEffects
+	[
+		: /BASE_SOUNDS/AudioExterior
+		{
+			Sound = "common/ftl_jump_in.wav"
+			Volume = 1
+			MaxConcurrentVolume = 1
+			Speed = 1
+			MaxConcurrent = 1
+		}
+	]
+}

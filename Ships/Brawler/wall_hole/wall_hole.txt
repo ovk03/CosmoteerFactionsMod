@@ -1,0 +1,67 @@
+NameKey = "Parts/WallHole"
+ID = cosmoteer.wall_hole // Door IDs must always be in the form of "author_name.part_name". If making your own mod, do *not* use "cosmoteer" as your author name, because it may conflict with future vanilla parts.
+OtherIDs = [wall_hole]
+Cost = 0
+IsBuildable = false
+IsHole = true
+FullRefundTime = 0
+Layer = "doors"
+StencilLayer = "walls_stencil"
+DescriptionKey = "Parts/WallHoleDesc"
+EditorIcon
+{
+	Texture
+	{
+		File = "icon.png"// We don't have an icon.
+		SampleMode = Linear
+	}
+	Size = [32, 32]
+}
+
+HorizontalOpenSprite
+{
+	File = "door.png"
+	Size = [1, 1]
+	UVRotation = 1
+}
+
+VerticalOpenSprite
+{
+	File = "door.png"
+	Size = [1, 1]
+	UVRotation = 0
+}
+
+HorizontalClosedSprite = &HorizontalOpenSprite
+VerticalClosedSprite = &VerticalOpenSprite
+
+HorizontalStencilSprite
+{
+	File = "stencil.png"
+	Size = [1, 1]
+	UVRotation = 1
+}
+
+VerticalStencilSprite
+{
+	File = "stencil.png"
+	Size = [1, 1]
+	UVRotation = 0
+}
+
+HorizontalBlueprintSprite
+{
+	File = "blueprints.png"
+	Size = [1, 1]
+	UVRotation = 1
+}
+
+VerticalBlueprintSprite
+{
+	File = "blueprints.png"
+	Size = [1, 1]
+	UVRotation = 0
+}
+
+HorizontalDoorSize = [0.71875, 0.21875]
+VerticalDoorSize = [0.21875, 0.71875]

@@ -1,0 +1,81 @@
+ID = "ok03.minigun_shot"
+OtherIDs = ["minigun_shot"]
+Range = 150
+IdealRange = 125
+Speed = 350
+
+Components
+{
+	Physics
+	{
+		Type = CirclePhysics
+		Radius = 0.1
+		Density = 0.0001
+	}
+
+	Death
+	{
+		Type = DeathByLifetime
+		// Lifetime will be auto-calculated based on range and speed.
+	}
+
+	Sprite
+	{
+		Type = Sprite
+		RenderBucket = Lower
+		Sprite
+		{
+			Texture
+			{
+				File = "pd_shot.png"
+				SampleMode = Linear
+				MipLevels = max
+			}
+			Size = [8, .5]
+		}
+		Offset = [-3.5, 0]
+		LerpScaleFrom = [.25, 1]
+		LerpTime = .05
+	}
+
+	AntiBullet
+	{
+		Type = AntiBullet
+		HitsBulletCategories = [missile, mine, bullet]
+
+		HitBullet
+		{
+			HitEffects
+			[
+				{
+					Type = Damage
+					Damage = 150
+				}
+			]
+
+			MediaEffects
+			[
+				&<particles/pd_shot_clink.txt>
+			]
+		}
+	}
+
+	Hit
+	{
+		Type = SimpleHit
+
+		HitShield = &HitOperational
+		HitOperational
+		{
+			HitEffects
+			[
+				{
+					Type = Damage
+					Damage = 35
+				}
+			]
+			MediaEffects = &~/Components/AntiBullet/HitBullet/MediaEffects
+		}
+		HitStructural = &HitOperational
+	}
+}

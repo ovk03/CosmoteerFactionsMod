@@ -1,0 +1,172 @@
+ID = "cosmoteer.bullet_large"
+OtherIDs = ["big_bullet", "bullet_big"]
+Range = 190
+IdealRange = [75, 190]
+IdealRadius = [5, 50]
+Speed = 100
+
+Components
+{
+	Physics
+	{
+		Type = CirclePhysics
+		Radius = 0.3
+		Density = 0.0001
+	}
+
+	Death
+	{
+		Type = DeathByLifetime
+		// Lifetime will be auto-calculated based on range and speed.
+	}
+
+	Targetable
+	{
+		Type = Targetable
+		Health = 1000
+		TargetCategory = "bullet"
+
+		OnDeath
+		{
+			MediaEffects = &~/Components/Hit/HitOperational/MediaEffects
+		}
+	}
+
+	Hit
+	{
+		Type = PenetratingHit
+		Penetration = 7.0
+		PenetrationSpeed = 20
+
+		HitShield = &HitOperational
+		HitOperational
+		{
+			ReduceEffectsByPenetration = true
+
+			HitEffects
+			[
+				{
+					Type = Damage
+					Damage = 2400
+				}
+				{
+					Type = Impulse
+					Impulse = 60
+				}
+			]
+
+			MediaEffects
+			[
+				&<particles/bullet_hit_large.txt>
+				&<particles/bullet_smoke_large.txt>
+				&<particles/bullet_flash_large.txt>
+
+				: /BASE_SOUNDS/AudioExterior
+				{
+					Sound = "bullet_large_hit.wav"
+					Volume = .75
+					SpeedVariation = .4
+				}
+
+				: /BASE_SHAKE
+				{
+					ShakeAmount = .1
+					Duration = .75
+				}
+			]
+		}
+		HitStructural
+		{
+			ReduceEffectsByPenetration = true
+
+			HitEffects
+			[
+				{
+					Type = Damage
+					Damage = 1200
+				}
+				{
+					Type = Impulse;
+					Impulse = 30
+				}
+			]
+
+			MediaEffects
+			[
+				&<particles/bullet_hit_struct_large.txt>
+
+				: /BASE_SOUNDS/AudioExterior
+				{
+					Sound = "bullet_large_hit_structure.wav"
+					Volume = .5
+					SpeedVariation = .4
+				}
+			]
+		}
+		PenetratingOperational
+		{
+			ReduceEffectsByPenetration = true
+
+			HitEffects
+			[
+				{
+					Type = Damage
+					Damage = 2400
+				}
+				{
+					Type = Fire
+					FireChance = .4
+				}
+				{
+					Type = Impulse
+					Impulse = 60
+				}
+			]
+
+			MediaEffects
+			[
+				&<particles/bullet_hit_large.txt>
+				&<particles/bullet_flash_large.txt>
+			]
+		}
+		PenetratingStructural
+		{
+			// No effect.
+		}
+		FinishedPenetratingOperational = &PenetratingOperational
+		FinishedPenetratingStructural = &PenetratingStructural
+	}
+
+	Sprite
+	{
+		Type = AnimatedSprite
+		ReduceScaleWith = Hit
+		ReduceScaleExponent = 0.5
+		Animation
+		{
+			AtlasSprite
+			{
+				Texture
+				{
+					File = "../bullet_med/bullet_med.png" // Just re-use the medium cannon's bullet.
+					SampleMode = Linear
+					MipLevels = max
+				}
+				Size = [3, 3]
+			}
+			FrameCount = 16
+			FrameSize = [128, 128]
+			FramesPerRow = 4
+			FramesPerSecond = 60
+		}
+	}
+
+	MediaEffects
+	{
+		Type = MediaEffects
+		MediaEffects
+		[
+			&<particles/bullet_trail_large.txt>
+		]
+	}
+}

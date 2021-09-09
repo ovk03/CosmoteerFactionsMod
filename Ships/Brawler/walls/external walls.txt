@@ -1,0 +1,289 @@
+Layer = "walls"
+AmbiguousSprites
+[
+	// No walls.
+	{
+		SituationCode = "11111111"
+		DamageLevels = []
+	}
+
+	// All four walls.
+	{
+		SituationCode = "*0*0*0*0"
+		DamageLevels
+		[
+			{
+				File = "external00.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external00_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external00_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Three walls.
+	{
+		SituationCode = "*1*0*0*0"
+		DamageLevels
+		[
+			{
+				File = "external01.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external01_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external01_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Two walls joined at corner.
+	{
+		SituationCode = "*111*0*0"
+		DamageLevels
+		[
+			{
+				File = "external02.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external02_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external02_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Two walls joined at corner, with corner opposite.
+	{
+		SituationCode = "*101*0*0"
+		DamageLevels
+		[
+			{
+				File = "external03.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external03_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external03_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// One wall.
+	{
+		SituationCode = "*0*11111"
+		DamageLevels
+		[
+			{
+				File = "external04.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external04_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external04_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// One wall with corner on right.
+	{
+		SituationCode = "*0*10111"
+		DamageLevels
+		[
+			{
+				File = "external05.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external05_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external05_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// One wall with corner on left.
+	{
+		SituationCode = "*0*11101"
+		DamageLevels
+		[
+			{
+				File = "external06.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external06_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external06_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// One wall, two corners.
+	{
+		SituationCode = "*0*10101"
+		DamageLevels
+		[
+			{
+				File = "external07.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external07_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external07_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// One corner.
+	{
+		SituationCode = "01111111"
+		DamageLevels
+		[
+			{
+				File = "external08.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external08_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external08_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Two corners adjacent.
+	{
+		SituationCode = "01011111"
+		DamageLevels
+		[
+			{
+				File = "external09.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external09_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external09_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Three corners.
+	{
+		SituationCode = "01010111"
+		DamageLevels
+		[
+			{
+				File = "external10.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external10_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external10_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Two corners diagonal.
+	{
+		SituationCode = "01110111"
+		DamageLevels
+		[
+			{
+				File = "external11.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external11_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external11_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Four corners.
+	{
+		SituationCode = "01010101"
+		DamageLevels
+		[
+			{
+				File = "external12.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external12_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external12_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Two walls parallel.
+	{
+		SituationCode = "*0*1*0*1"
+		DamageLevels
+		[
+			{
+				File = "external13.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external13_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "external13_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+]

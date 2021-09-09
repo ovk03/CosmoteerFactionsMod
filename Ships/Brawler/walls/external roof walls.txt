@@ -1,0 +1,289 @@
+Layer = "roofs"
+AmbiguousSprites
+[
+	// No walls.
+	{
+		SituationCode = "11111111"
+		DamageLevels = []
+	}
+
+	// All four walls.
+	{
+		SituationCode = "*0*0*0*0"
+		DamageLevels
+		[
+			{
+				File = "roof00.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof00_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof00_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Three walls.
+	{
+		SituationCode = "*1*0*0*0"
+		DamageLevels
+		[
+			{
+				File = "roof01.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof01_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof01_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Two walls joined at corner.
+	{
+		SituationCode = "*111*0*0"
+		DamageLevels
+		[
+			{
+				File = "roof02.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof02_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof02_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Two walls joined at corner, with corner opposite.
+	{
+		SituationCode = "*101*0*0"
+		DamageLevels
+		[
+			{
+				File = "roof03.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof03_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof03_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// One wall.
+	{
+		SituationCode = "*0*11111"
+		DamageLevels
+		[
+			{
+				File = "roof04.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof04_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof04_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// One wall with corner on right.
+	{
+		SituationCode = "*0*10111"
+		DamageLevels
+		[
+			{
+				File = "roof05.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof05_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof05_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// One wall with corner on left.
+	{
+		SituationCode = "*0*11101"
+		DamageLevels
+		[
+			{
+				File = "roof06.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof06_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof06_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// One wall, two corners.
+	{
+		SituationCode = "*0*10101"
+		DamageLevels
+		[
+			{
+				File = "roof07.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof07_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof07_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// One corner.
+	{
+		SituationCode = "01111111"
+		DamageLevels
+		[
+			{
+				File = "roof08.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof08_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof08_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Two corners adjacent.
+	{
+		SituationCode = "01011111"
+		DamageLevels
+		[
+			{
+				File = "roof09.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof09_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof09_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Three corners.
+	{
+		SituationCode = "01010111"
+		DamageLevels
+		[
+			{
+				File = "roof10.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof10_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof10_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Two corners diagonal.
+	{
+		SituationCode = "01110111"
+		DamageLevels
+		[
+			{
+				File = "roof11.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof11_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof11_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Four corners.
+	{
+		SituationCode = "01010101"
+		DamageLevels
+		[
+			{
+				File = "roof12.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof12_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof12_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+
+	// Two walls parallel.
+	{
+		SituationCode = "*0*1*0*1"
+		DamageLevels
+		[
+			{
+				File = "roof13.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof13_33.png"
+				Size = [1, 1]
+			}
+			{
+				File = "roof13_66.png"
+				Size = [1, 1]
+			}
+		]
+	}
+]

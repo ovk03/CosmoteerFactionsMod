@@ -1,0 +1,169 @@
+Type = Particles
+Def
+{
+	EmitPerSecond = 0
+	EmitPerOneShot = 0
+	Initializers
+	[
+		{
+			Type = LocationToWorldSpace
+			LocationIn = location
+			LocationOut = location
+			Name = "Convert location to world space."
+			Enabled = true
+			UpdateAfterInit = false
+		}
+		{
+			Type = VelocityToWorldSpace
+			VelocityIn = base_velocity
+			VelocityOut = base_velocity
+			Name = "Convert velocity to world space"
+			Enabled = true
+			UpdateAfterInit = false
+		}
+		{
+			Type = AddFrameOfReference
+			Name = "Add frame of reference"
+			VelocityInOut = inherited_velocity
+			Enabled = true
+			UpdateAfterInit = false
+		}
+	]
+	Updaters
+	[
+		{
+			Type = Lifetime
+			LifeInOut = life
+			Lifetime = 0.25
+			Name = Lifetime
+			Enabled = true
+			UpdateAfterInit = false
+		}
+		{
+			Type = Operator
+			DataType = Vector2D
+			AIn = location
+			BIn = velocity
+			ResultOut = location
+			Operator = AddDt
+			Name = "Apply velocity."
+			Enabled = true
+			UpdateAfterInit = false
+		}
+		{
+			Type = Operator
+			DataType = Vector2D
+			AIn = location
+			BIn = inherited_velocity
+			ResultOut = location
+			Operator = AddDt
+			Name = "Apply inherited velocity"
+			Enabled = true
+			UpdateAfterInit = false
+		}
+		{
+			Type = Lerp
+			LerpIn = life
+			DataOut = scale
+			Invert = false
+			ValueType = Float
+			FromValue = 1
+			ToValue = 0
+			Name = "Scale lerp"
+			Enabled = true
+			UpdateAfterInit = true
+		}
+	]
+	Renderer
+	{
+		Type = StandardQuadRenderer
+		LocationIn = location
+		ScaleIn = scale
+		RotationIn
+		ColorIn = color
+		UvRectIn
+		BaseSize
+		{
+			X = 2
+			Y = 2
+		}
+		MaxScale = 1
+		Name = ""
+	}
+	Material
+	{
+		Texture
+		{
+			File = ./Data/common_effects/particles/spark.png
+			MipLevels = max
+			SampleMode = Linear
+		}
+		TargetBlendMode
+		{
+			SourceRgbFactor = SourceAlpha
+			DestRgbFactor = One
+			RgbOperator = Add
+			SourceAlphaFactor = InverseDestAlpha
+			DestAlphaFactor = One
+			AlphaOperator = Add
+		}
+	}
+	DeleteMode = KeepOrder
+	EnableMultithreading = false
+	InitCapacity = 2500
+}
+EmitterDef
+{
+	EmitPerSecond = 0
+	EmitPerOneShot = 30
+	PreInitializers
+	[
+		{
+			Type = SetValue
+			DataOut = color
+			ValueType = Color
+			Value
+			{
+				Rf = 1
+				Gf = 0.9607843
+				Bf = 0.407843143
+				Af = 1
+			}
+			Name = Color
+			Enabled = true
+			UpdateAfterInit = false
+		}
+		{
+			Type = SetRandomVelocity
+			VelocityOut = velocity
+			Speed
+			{
+				Min = 0
+				Max = 20
+			}
+			Direction
+			{
+				Min = 0d
+				Max = 360d
+			}
+			Name = ""
+			Enabled = true
+			UpdateAfterInit = false
+		}
+	]
+	PostInitializers[]
+}
+Bucket = Lower2
+PenetratingBucket
+MinIntensity = 0
+IsFancy = true
+Sharing = Global
+UnsharedRenderInWorldSpace = false
+DontEmitWhenOffScreen = true
+DontEmitWhenOffScreenSizeInflate = 3
+UseCustomShapeForOffScreenCheck = false
+MaxEmissionZoom = 15
+ScaleEmissionWithIntensity = false
+ScaleEmissionWithBeamLength = false
+Delay = 0
+IgnoreIntensity = false

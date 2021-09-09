@@ -1,0 +1,75 @@
+Type = Particles
+Def = &<./Data/common_effects/particles/thruster_trail_def.txt>
+EmitterDef
+{
+	EmitPerSecond = 60
+	EmitPerOneShot = 0
+	PreInitializers
+	[
+		{
+			Type = SetValue
+			VelocityOut = velocity
+			Speed
+			{
+				Min = 3
+				Max = 3
+			}
+			Direction
+			{
+				Min = -10d
+				Max = 10d
+			}
+			Name = "Initial location"
+			Enabled = true
+			DataOut = location
+			ValueType = Vector2D
+			Value
+			{
+				X = -0.1
+				Y = 0
+			}
+			UpdateAfterInit = false
+		}
+		{
+			Type = SetRandomVelocity
+			ScaleOut = scale
+			ScaleFactor = 1.5
+			Name = "Init velocity"
+			Enabled = true
+			VelocityOut = velocity
+			Speed
+			{
+				Min = 3
+				Max = 3
+			}
+			Direction
+			{
+				Min = -10d
+				Max = 10d
+			}
+			UpdateAfterInit = false
+		}
+		{
+			Type = ScaleFromIntensity
+			ScaleOut = scale
+			ScaleFactor = 1.5
+			Name = "Scale from intensity"
+			Enabled = true
+			UpdateAfterInit = false
+		}
+	]
+	PostInitializers[]
+	UpdatedEmittedParticles = false
+}
+Bucket = Lower3
+Delay = 0
+IgnoreIntensity = false
+Sharing = Global
+MinIntensity = 0.05
+IsFancy = true
+DontEmitWhenOffScreen = true
+DontEmitWhenOffScreenSizeInflate = 10
+PenetratingBucket
+UseCustomShapeForOffScreenCheck = false
+ScaleEmissionWithIntensity = false
+MaxEmissionZoom = 3.40282347E+38
