@@ -2,8 +2,8 @@ Part : /BASE_PART
 {
 	NameKey = "Parts/ElectroBolter"
 	IconNameKey = "Parts/ElectroBolterIcon"
-	ID = cosmoteer.electro_bolter // Part IDs must always be in the form of "author_name.part_name". If making your own mod, do *not* use "cosmoteer" as your author name, because it may conflict with future vanilla parts.
-	OtherIDs = [electro_bolt]
+	ID = ok03.mini_gun // Part IDs must always be in the form of "author_name.part_name". If making your own mod, do *not* use "cosmoteer" as your author name, because it may conflict with future vanilla parts.
+	OtherIDs = [MiniGun]
 	EditorGroup = "WeaponsEnergy"
 	DescriptionKey = "Parts/ElectroBolterDesc"
 	Cost = 3000
@@ -13,7 +13,7 @@ Part : /BASE_PART
 	SaveRect = &PhysicalRect
 	SelectionPriority = 1
 	SelectionTypeByRotation = true
-	MaxHealth = 5000
+	MaxHealth = 15000
 	InitialPenetrationResistance = 3
 	PenetrationRectType = Normal
 	ProhibitAbove = 1
@@ -72,7 +72,7 @@ Part : /BASE_PART
 		{
 			Type = AmmoStorage
 			AmmoType = battery
-			MaxAmmo = 4000
+			MaxAmmo = 7000
 		}
 		BatteryConsumer
 		{
@@ -282,7 +282,7 @@ Part : /BASE_PART
 			AutoFireToggle = AutoFireToggle
 			FireInterval = .1
 			FiringArc = 200d
-			RotateSpeed = 360d
+			RotateSpeed = 90d
 			FireThresholdAngle = 1d
 			AIFirepowerRating = 600
 			Emitter = BulletEmitter
@@ -327,7 +327,7 @@ Part : /BASE_PART
 			FireTrigger = Turret
 			GetTargetFrom = Turret
 			Location = [.75, 0]
-			Spread =1d
+			Spread =[-2d,2d]
 			OperationalToggle = IsOperational
 			FireDelay = .1
 			Bullet = &<../../../shots/minigun_shot/minigun_shot.txt>
@@ -542,22 +542,14 @@ Part : /BASE_PART
 			NameKey = "StatCategories/ElectroBolt"
 			Stats
 			{
-			//	DamagePerShot = &~/Part/Components/BulletEmitter/Bullet/Components/Hit/HitOperational/HitEffects/1/Damage
-			//	DamagePerSecond = (&DamagePerShot) * (&ROF)
-			//	Damage = [&../DamagePerShot, &../DamagePerSecond]
-			//	ShieldDamagePerShot = (&~/Part/Components/BulletEmitter/Bullet/Components/Hit/HitShield/HitEffects/0/Amount) / (&<../shield_gen_small/shield_gen_small.txt>/Part/Components/ArcShield/AmmoDrainPerDamage)
-			//	ShieldDamagePerSecond = (&ShieldDamagePerShot) * (&ROF)
-			//	ShieldDamage = [&../ShieldDamagePerShot, &../ShieldDamagePerSecond]
-			//	PowerDrainPerShot = (&~/Part/Components/BulletEmitter/Bullet/Components/Hit/HitOperational/HitEffects/0/Amount) / 1000
-			//	PowerDrainPerSecond = (&PowerDrainPerShot) * (&ROF)
-			//	PowerDrain = [&../PowerDrainPerShot, &../PowerDrainPerSecond]
-			//	ShieldPenetration = (&~/Part/Components/BulletEmitter/Bullet/Components/Hit/Penetration) / (&<../shield_gen_small/shield_gen_small.txt>/Part/Components/ArcShield/PenetrationResistance/0)
+				DamagePerShot = &~/Part/Components/BulletEmitter/Bullet/Components/Hit/HitOperational/HitEffects/0/Damage
+				DamagePerSecond = (&DamagePerShot) * (&ROF)
+				Damage = [&../DamagePerShot, &../DamagePerSecond]
 				ROF = 1 / (&~/Part/Components/Turret/FireInterval)
 				Range = &~/Part/Components/BulletEmitter/Bullet/Range
 				Arc = deg(&~/Part/Components/Turret/FiringArc)
 				TurretSpeed = deg(&~/Part/Components/Turret/RotateSpeed)
 				ShotSpeed = &~/Part/Components/BulletEmitter/Bullet/Speed
-			//	ShotHP = &~/Part/Components/BulletEmitter/Bullet/Components/Targetable/Health
 				PowerPerShot = (&~/Part/Components/BulletEmitter/AmmoUsed) / 1000
 				PowerPerSecond = (&PowerPerShot) * (&ROF)
 				ShotPowerUsage = [&../PowerPerShot, &../PowerPerSecond]

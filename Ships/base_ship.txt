@@ -5,8 +5,8 @@ MaxBorders
 {
 	Left = -51
 	Right = 51
-	Top = -51
-	Bottom = 51
+	Top = -101
+	Bottom = 101
 }
 
 MaxAbsLinearVelocity = Infinity
@@ -19,16 +19,16 @@ Doors = []
 DefaultDoorID = ""
 HoleDoorID = ""
 
-BaseLinearDamping = 0.2
-LinearDampingFactorPerSpeed = 75
+BaseLinearDamping = 0.3
+LinearDampingFactorPerSpeed = 150
 LinearDampingFactorPerSpeedExponent = 2.0
-MinLinearDamping = 0.2
-BaseAngularDamping = 0.2
+MinLinearDamping = 0.3
+BaseAngularDamping = 1
 AngularDampingFactorPerSpeed = 1
 AngularDampingFactorPerSpeedExponent = 0
-MinAngularDamping = 0.2
+MinAngularDamping = 1
 Restitution = 0
-RotationalInertiaFactor = 1
+RotationalInertiaFactor = .3
 ThrusterSolverIterations = 3
 ThrusterSRFFactors = [1, 2, 100]
 UncommandedThrusterShutdownDelay = 2
@@ -39,8 +39,8 @@ VelocityCalculateFactor = 15
 AngularVelocityCalculateFactor = 10
 RetroVelocityCalculateFactor = 2
 RetroAngularVelocityCalculateFactor = 3
-AngleSatisfiedThreshold = [0d, 45d]
-HorizontalSatisfiedThreshold = [0, 15%] // Velocity as percentage of forward distance.
+AngleSatisfiedThreshold = [0d, 30d]
+HorizontalSatisfiedThreshold = [0, 50%] // Velocity as percentage of forward distance.
 ForwardThrustRatioHistoryCount = 10
 ArrivalTimeOptimisticBuffer = 0.5
 ArrivalTimeRampDown = 1.0
@@ -48,7 +48,7 @@ OrbitModeRadiusFactor = 1.5
 MaxPartSearchIterations = 50
 SupplierSearchInterval = 1
 SelfDestructForce = 10
-BaseSightRadius = 25
+BaseSightRadius = 100
 DefaultTargetingRangeFactor = 2.0
 
 FtlFuelCostPerMass = .035

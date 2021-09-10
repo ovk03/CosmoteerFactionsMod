@@ -14,10 +14,10 @@ Part : /BASE_PART
 	SelectionPriority = 1
 	SelectionTypeByRotation = true
 	SelectionTypeID = "thrusters"
-	MaxHealth = 2000
+	MaxHealth = 5000
 	ProhibitBelow = 4
-	ThrusterForce = 600
-	ThrustIncreaseTime = { BaseValue=1; BuffType=Engine; BuffMode=Divide; }
+	ThrusterForce = 6000
+	ThrustIncreaseTime = { BaseValue=10; BuffType=Engine; BuffMode=Divide; }
 	ThrustRecoveryTime = 2
 	FuelUsage = 100
 	ReceivableBuffs = [Engine]

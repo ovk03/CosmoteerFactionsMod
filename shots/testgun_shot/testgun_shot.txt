@@ -1,5 +1,5 @@
-ID = "ok03.minigun_shot"
-OtherIDs = ["minigun_shot"]
+ID = "ok03.testgun_shot"
+OtherIDs = ["testgun_shot"]
 Range = 1500
 IdealRange = 125
 Speed = 350
@@ -39,16 +39,18 @@ Components
 	}
 	Hit
 	{
-		Type = SimpleHit
-
+		Type = PenetratingHit
+		Penetration = 50.0
+		PenetrationSpeed = 50
 		HitShield = &HitOperational
+		HitStructural = &HitOperational
 		HitOperational
 		{
 			HitEffects
 			[
 				{
 					Type = Damage
-					Damage = 500
+					Damage = 999990
 				}
 			]
 			MediaEffects
@@ -56,6 +58,23 @@ Components
 				&<particles/pd_shot_clink.txt>
 			]
 		}
-		HitStructural = &HitOperational
+		PenetratingOperational
+		{
+			HitEffects
+			[
+				{
+				 	Type = ExplosiveDamage
+					TotalDamage = 200
+					Radius = 10
+				}
+			]
+			MediaEffects
+			[
+				&<particles/pd_shot_clink.txt>
+			]
+		}
+		PenetratingStructural=&HitStructural
+		FinishedPenetratingOperational=&HitStructural
+		FinishedPenetratingStructural=&HitStructural
 	}
 }

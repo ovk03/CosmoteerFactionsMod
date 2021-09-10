@@ -20,13 +20,14 @@ Brawler : <../base_ship.txt>
 		&<corridor/corridor.txt>/Part
 		&<fire_extinguisher/fire_extinguisher.txt>/Part
 
-
-		&<electro_bolter/electro_bolter.txt>/Part
+		&<test_gun/test_gun.txt>/Part
+		&<mini_gun/mini_gun.txt>/Part
 		&<ammo_factory/ammo_factory.txt>/Part
 		&<cannon_med/cannon_med.txt>/Part
 
 
 		&<armor/armor.txt>/Part
+		&<structure/structure.txt>/Part
 /*
 		// Energy weapons.
 		&<laser_blaster_small/laser_blaster_small.txt>/Part
@@ -84,7 +85,6 @@ Brawler : <../base_ship.txt>
 		&<tractor_beam_emitter/tractor_beam_emitter.txt>/Part
 		&<sensor_array/sensor_array.txt>/Part
 		&<explosive_charge/explosive_charge.txt>/Part
-		&<structure/structure.txt>/Part
 		&<structure_wedge/structure_wedge.txt>/Part
 		&<structure_1x2_wedge/structure_1x2_wedge_L.txt>/Part
 		&<structure_1x2_wedge/structure_1x2_wedge_R.txt>/Part

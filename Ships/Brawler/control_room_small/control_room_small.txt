@@ -84,7 +84,7 @@ Part : /BASE_PART
 		{
 			Type = Sensor
 			OperationalToggle = IsOperational
-			SightRadius = 400
+			SightRadius = 2000
 		}
 
 		CrewLocation
